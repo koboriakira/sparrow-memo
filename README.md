@@ -14,6 +14,8 @@ cd app
 yarn dev
 ```
 
+You can deploy when you do `npm run deploy` .
+
 ## Others
 
 Here are options I selected when I did `yarn create nuxt-app app` .
