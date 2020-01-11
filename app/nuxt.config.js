@@ -25,7 +25,14 @@ export default {
       rel: 'icon',
       type: 'image/x-icon',
       href: '/favicon.ico'
-    }]
+    }],
+    script: [{
+        src: "/__/firebase/7.6.2/firebase-app.js"
+      },
+      {
+        src: "/__/firebase/init.js"
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color
