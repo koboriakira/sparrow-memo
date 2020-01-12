@@ -10,6 +10,10 @@
         <v-card-text>
           <p v-if="isAuthenticated">isSignedIn</p>
           <p v-if="!isAuthenticated">isNotSignedIn</p>
+          <p>
+            <v-btn @click="signIn">signIn</v-btn>
+            <v-btn @click="signOut">signOut</v-btn>
+          </p>
           <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
           <p>
             For more information on Vuetify, check out the
@@ -55,7 +59,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 import Logo from "~/components/Logo.vue";
 import VuetifyLogo from "~/components/VuetifyLogo.vue";
@@ -68,6 +72,9 @@ export default {
   computed: {
     // userモジュールのisAuthenticatedを使えるようにする
     ...mapGetters("user", ["isAuthenticated"])
+  },
+  methods: {
+    ...mapActions("user", ["signIn", "signOut"])
   }
 };
 </script>
