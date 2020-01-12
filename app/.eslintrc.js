@@ -14,6 +14,8 @@ module.exports = {
     "vue/singleline-html-element-content-newline": "off",
     "vue/html-self-closing": "off",
     quotes: "off",
-    semi: "off"
+    semi: "off",
+    "arrow-parens": "off",
+    "Unexpected console statement": "off"
   }
 };
