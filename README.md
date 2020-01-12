@@ -1,4 +1,19 @@
+# sparrow-memo
+
 ## Get Started
+
+You need to create a `.env` file, and fill in these params.
+
+```
+BASE_URL="http://localhost:3000"
+FB_API_KEY="*****" // refer to Firebase SDK
+FB_AUTH_DOMAIN="*****"
+FB_DATABASE_URL="*****"
+FB_PROJECTID="*****"
+FB_STORAGE_BUCKET="*****"
+FB_MESSAGING_SENDER_ID="*****"
+FB_APP_ID="*****"
+```
 
 Create Docker image and container.
 
