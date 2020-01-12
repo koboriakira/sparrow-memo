@@ -34,6 +34,9 @@ export default {
       }
     ]
   },
+  router: {
+    middleware: 'authenticated'
+  },
   /*
    ** Customize the progress-bar color
    */

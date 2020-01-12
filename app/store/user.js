@@ -1,3 +1,7 @@
+import firebase from '~/plugins/firebase'
+
+const auth = firebase.auth()
+
 export const state = () => ({
   isSignedIn: false // ログインしているか
 });
@@ -17,12 +21,39 @@ export const mutations = {
 // アクション。状態を変更するのではなく、ミューテーションをコミットする。
 // 任意の非同期処理を含むことができる。
 export const actions = {
-  async signIn({ commit }) {
-    // ログイン処理。モックなので絶対に成功したことにする。
-    const isSignedIn = await true;
-    commit("setSignInState", isSignedIn);
+  async signIn({
+    commit
+  }) {
+    try {
+      // Google認証プロバイダを使ってポップアップ形式でサインインする。
+      // Providerを変えれば他のサービスでも認証可能らしい。
+      const provider = new firebase.auth.GoogleAuthProvider();
+      await auth.signInWithPopup(provider).then(ret => {
+        commit("setSignInState", true);
+
+        // ログインに成功したらトップページへリダイレクト
+        this.$router.push("/");
+      }).catch(error => {
+        console.error(error);
+      })
+    } catch (error) {
+      console.error(error)
+    }
   },
-  signOut({ commit }) {
-    commit("setSignInState", false);
+  async setSignedIn({
+    commit
+  }, signedIn) {
+    console.log("user/setSignedIn");
+    await commit("setSignInState", signedIn);
+  },
+  async signOut({
+    commit
+  }) {
+    await auth.signOut().then(() => {
+      commit("setSignInState", false);
+
+      // ログアウトに成功したらログインページへリダイレクト
+      this.$router.push("login");
+    })
   }
 };

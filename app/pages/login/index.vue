@@ -8,9 +8,32 @@
       <v-card>
         <v-card-title class="headline">Login</v-card-title>
         <v-card-text>
-          <v-btn>signIn</v-btn>
+          <v-btn @click="signIn">
+            <nuxt-link to="/">signIn</nuxt-link>
+          </v-btn>
+          isAuthenticated: {{ isAuthenticated }}
         </v-card-text>
       </v-card>
     </v-flex>
   </v-layout>
 </template>
+
+<script>
+import { mapGetters, mapActions } from "vuex";
+
+import Logo from "~/components/Logo.vue";
+import VuetifyLogo from "~/components/VuetifyLogo.vue";
+
+export default {
+  components: {
+    Logo,
+    VuetifyLogo
+  },
+  computed: {
+    ...mapGetters("user", ["isAuthenticated"])
+  },
+  methods: {
+    ...mapActions("user", ["signIn"])
+  }
+};
+</script>
