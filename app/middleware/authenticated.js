@@ -20,12 +20,12 @@ export default async function ({
   }
 
   // 未認証かつログインページ以外に飛ぼうとしている場合
-  if (!isAuthenticated && route.name !== 'login') {
+  if (!isAuthenticated && route.path !== '/login') {
     redirect('/login');
   }
 
   // 認証済だがログインページに飛ぼうとしている場合は、トップページにリダイレクト
-  if (isAuthenticated && route.name === 'login') {
+  if (isAuthenticated && route.path === '/login') {
     redirect('/')
   }
 

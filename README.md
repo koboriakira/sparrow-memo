@@ -29,7 +29,7 @@ cd app
 yarn dev
 ```
 
-You can deploy when you do `npm run deploy` , after `firebase login --no-localhost` /
+You can deploy when you do `yarn run deploy` , after `firebase login --no-localhost` /
 
 ## Others
 
