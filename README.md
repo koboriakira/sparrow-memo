@@ -2,7 +2,7 @@
 
 ## Get Started
 
-You need to create a `.env` file, and fill in these params.
+You must fill these params in `.env` file.
 
 ```
 BASE_URL="http://localhost:3000"
